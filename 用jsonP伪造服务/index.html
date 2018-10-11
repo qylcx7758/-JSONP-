@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+    <script>
+        function creatE() {
+            var sc = document.createElement("script")
+            // sc.src = "http://smallprogram.redfinger.cn/xx/xx/xx.js"
+            sc.src = "js/target.js"
+            var ls = document.createElement("link")
+            ls.href = "a.css"
+            ls.rel = "stylesheet"
+            document.getElementsByTagName("head")[0].appendChild(sc)
+            document.getElementsByTagName("head")[0].appendChild(ls)
+        }
+
+        function log(obj) {
+            console.log(obj)
+        }
+        // 表示异步
+        // setTimeout(function () {
+        //     console.log(obj)
+        // }, 1000)
+        //   success
+    </script>
+    <script>
+        function fibonacci(n) {
+            return n < 2 ? n : arguments.callee(n - 1) + arguments.callee(n - 2);
+        }
+    </script>
+    <script>
+        var $ = {};
+        creatE()
+        // $.ajax = function (msg) {
+        //     console.log(msg)
+        //     return msg
+        // }
+  
+        setTimeout(() => {
+            // console.log($)
+            // $.ajax=function(e){
+            //     console.log(e)
+            // }
+            $.ajax({
+            url:"xx",
+            success:function(e){
+                console.log($.ajax)
+                console.log(e)
+                console.log(typeof(e))
+                for (var k in e){
+                    console.log(e[k])
+                }
+            }
+        })
+            // $.ajax(msg)
+        }, 1000);
+    </script>
+    <script>
+        // let promise=new Promise(function(resolve,reject){
+        //     creatE()
+        //     resolve()
+        //     console.log(fibonacci(40))
+        //     console.log(23)
+        // })
+        // // 这是表示创建完之后再打印请求出的内容
+        // // 但是按照顺序来，还有请求的时间
+        // // 按照断点和network，此时已经发送了请求，但是还没有出现请求结果200，在pending（在…期间；直到…时为止；在等待…之际）
+        // // 所以这种网络请求是主线程上的栈全部运行完成后才执行
+        // //即便是斐波那契数列耗时，也不能请求成功，所以结论如上，用定时器另开线程把
+        // promise.then(function(){
+        //     console.log("FSd")
+        //     console.log(obj)
+        // })
+    </script>
+ 
+</body>
+
+</html>
